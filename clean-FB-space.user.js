@@ -10,31 +10,32 @@
 // ==/UserScript==
 
 
-function removerightRailAd(){
+function removerightRailAd() {
     var gg = document.querySelector("[data-pagelet='RightRail']")
-    if(gg != null && gg.children.length>0){
-        if(gg.children[0].children.length>0){
+    if (gg != null && gg.children.length > 0) {
+        if (gg.children[0].children.length > 0) {
             gg.children[0].children[0].style = "display:none";
         }
     }
 }
 
-function removeSponsorPost(){
+function removeSponsorPost() {
     document.querySelectorAll("[aria-label='贊助']").forEach(node => {
-        if(node.offsetParent != null){
+        if (node.offsetParent != null) {
             node.offsetParent.remove()
         }
     });
 }
 
-function clearAD(){
+function clearAD() {
     removerightRailAd();
     removeSponsorPost();
     setTimeout(clearAD, 200);
 }
 
-(function() {
+(function () {
     'use strict';
+
     // Your code here...
     clearAD();
 })();
