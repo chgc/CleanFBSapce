@@ -9,4 +9,4 @@
 * ***Safari*** : Install [Tampermonkey](https://safari.tampermonkey.net/tampermonkey.safariextz)
 
 ### Install Script
-Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-space.user.js).
+移除廣告 Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-space.user.js).
