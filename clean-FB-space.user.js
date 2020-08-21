@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name         移除 FB 贊助廣告
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  單純討厭 FB 懭告
+// @name         Clean FB Space
+// @namespace    https://github.com/chgc/CleanFBSapce
+// @version      0.2
+// @description  移除 FB 贊助廣告
 // @author       Kevin Yang
 // @include      /https:\/\/www.facebook.com
 // @grant        none
+// @downloadURL  https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-space.user.js
 // ==/UserScript==
 
 
@@ -34,7 +35,6 @@ function clearAD(){
 
 (function() {
     'use strict';
-
     // Your code here...
     clearAD();
 })();
