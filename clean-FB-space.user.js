@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clean FB Space
 // @namespace    https://github.com/chgc/CleanFBSapce
-// @version      0.3
+// @version      0.4
 // @description  移除 FB 贊助廣告
 // @author       Kevin Yang
 // @include      /https:\/\/www.facebook.com
@@ -19,14 +19,16 @@ function removerightRailAd() {
     }
 }
 
+const SponsoredKeyWords = ['贊助', 'Sponsored'];
+
+function checkSponsoredKeyWordsContain(node) {
+    return SponsoredKeyWords.some(lang => node.querySelector("[aria-label=" + lang + "]") != null)
+}
+
 function removeSponsorPost() {
-    ['贊助', 'Sponsored'].forEach(lang => {
-        document.querySelectorAll("[aria-label=" + lang + "]").forEach(node => {
-            if (node.offsetParent != null) {
-                node.offsetParent.remove()
-            }
-        })
-    });
+    const feeds = document.querySelectorAll("div[data-pagelet*='FeedUnit_']")
+    Array.from(feeds).filter(checkSponsoredKeyWordsContain)
+        .forEach(node => node.remove());
 }
 
 function clearAD() {
