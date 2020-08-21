@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clean FB Space
 // @namespace    https://github.com/chgc/CleanFBSapce
-// @version      0.2
+// @version      0.3
 // @description  移除 FB 贊助廣告
 // @author       Kevin Yang
 // @include      /https:\/\/www.facebook.com
@@ -20,10 +20,12 @@ function removerightRailAd() {
 }
 
 function removeSponsorPost() {
-    document.querySelectorAll("[aria-label='贊助']").forEach(node => {
-        if (node.offsetParent != null) {
-            node.offsetParent.remove()
-        }
+    ['贊助', 'Sponsored'].forEach(lang => {
+        document.querySelectorAll("[aria-label=" + lang + "]").forEach(node => {
+            if (node.offsetParent != null) {
+                node.offsetParent.remove()
+            }
+        })
     });
 }
 
