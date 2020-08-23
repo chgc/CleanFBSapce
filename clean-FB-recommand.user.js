@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clean FB Suggested for you
 // @namespace    https://github.com/chgc/CleanFBSapce
-// @version      0.1
+// @version      0.2
 // @description  移除 FB 為你推薦
 // @author       Kevin Yang
 // @include      /https:\/\/www.facebook.com

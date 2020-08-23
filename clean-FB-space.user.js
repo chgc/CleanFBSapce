@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clean FB Space
 // @namespace    https://github.com/chgc/CleanFBSapce
-// @version      0.5
+// @version      0.6
 // @description  移除 FB 贊助廣告
 // @author       Kevin Yang
 // @include      /https:\/\/www.facebook.com
