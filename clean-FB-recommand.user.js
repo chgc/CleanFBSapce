@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Clean FB Recommand
+// @name         Clean FB Suggested for you
 // @namespace    https://github.com/chgc/CleanFBSapce
 // @version      0.1
 // @description  移除 FB 為你推薦
