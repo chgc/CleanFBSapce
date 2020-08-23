@@ -10,5 +10,5 @@
 
 ### Install Script
 
-安裝【移除廣告】 Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-space.user.js).
-安裝【移除為你推薦】 Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-recommand.user.js).
+- 安裝【移除廣告】 Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-space.user.js).
+- 安裝【移除為你推薦】 Just click [here](https://github.com/chgc/CleanFBSapce/raw/master/clean-FB-recommand.user.js).
