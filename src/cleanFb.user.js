@@ -9,36 +9,42 @@
 // @downloadURL  https://github.com/houcheng/CleanFBSapce/raw/master/src/cleanFb.user.js
 // ==/UserScript==
 
-var zNode = document.createElement ('div');
-zNode.innerHTML = '';
-zNode.setAttribute ('id', 'myContainer');
-document.body.appendChild (zNode);
-GM_addStyle ( `
-    #myContainer {
-        position:               fixed;
-        bottom:                 0;
-        right:                  64px;
-        font-size:              12px;
-        background:             orange;
-        border:                 3px outset black;
-        margin:                 5px;
-        opacity:                0.9;
-        z-index:                1100;
-        width:                  300px;
-        padding:                5px 5px;
-    }
-    #myButton {
-        cursor:                 pointer;
-    }
-    #myContainer p {
-        color:                  red;
-        background:             white;
-    }
-` );
+function createBannerNode() {
+    const node = document.createElement ('div');
+    node.innerHTML = '';
+    node.setAttribute ('id', 'myContainer');
+    document.body.appendChild (node);
+    GM_addStyle ( `
+        #myContainer {
+            position:               fixed;
+            bottom:                 0;
+            right:                  64px;
+            font-size:              12px;
+            background:             orange;
+            border:                 3px outset black;
+            margin:                 5px;
+            opacity:                0.9;
+            z-index:                1100;
+            width:                  300px;
+            padding:                5px 5px;
+        }
+        #myButton {
+            cursor:                 pointer;
+        }
+        #myContainer p {
+            color:                  red;
+            background:             white;
+        }
+    ` );
+    return node;
+}
 
-
-
+const bannerNode = createBannerNode();
+const CheckInterval = 3000;
 const NeedToRemoveKeywords = ['為你推薦', 'Suggested for you', '贊助', 'Sponsored'];
+
+var lastRunTick = (new Date()).getTime();
+var removedCount = 0;
 
 function checkKeywordsExist(node) {
     if (!node.innerHTML) return false;
@@ -52,15 +58,10 @@ function checkKeywordExistBySpan(node){
     return span && span.innerHTML && NeedToRemoveKeywords.some((lang) => span.innerHTML.contains(lang));
 }
 
-const CheckInterval = 3000;
-var lastRunTick = (new Date()).getTime();
-var count = 0;
-
 function removeRecommandPost() {
     var nowTick = (new Date()).getTime();
     if (nowTick - lastRunTick < CheckInterval) return;
     lastRunTick = nowTick;
-    console.log("removeRecommandPost test");
 
     document.querySelectorAll("div[data-pagelet*='FeedUnit_']").forEach((node) => {
         var shouldRemove = false;
@@ -73,9 +74,9 @@ function removeRecommandPost() {
         }
 
         if (shouldRemove) {
-            count += 1;
+            removedCount += 1;
             const msg = node.innerText ? node.innerText.split('\n')[0] : "no-name";
-            zNode.innerHTML = `<div>${count} ${msg}</div>`;
+            bannerNode.innerHTML = `<div>${removedCount} ${msg}</div>`;
             node.remove();
         }
     });
