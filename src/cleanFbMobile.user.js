@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clean Fb Mobile
 // @namespace    https://github.com/houcheng/CleanFBSapce
-// @version      0.1
+// @version      0.11
 // @description  清除FB mobile (android firefox)
 // @author       Kevin Yang, Houcheng
 // @include      /https:\/\/m.facebook.com
