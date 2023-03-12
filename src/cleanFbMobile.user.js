@@ -62,11 +62,12 @@ function removeRecommandPost() {
             hideNode(node);
         }
     }
+    lastRunTick = nowTick;
 }
 
 function executeActions() {
   removeRecommandPost();
-  setTimeout(()=> executeActions(), CheckInterval);
+  setTimeout(()=> executeActions(), 1000);
 }
 
 (function () {

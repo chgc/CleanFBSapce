@@ -41,7 +41,7 @@ function createBannerNode() {
 
 const bannerNode = createBannerNode();
 const CheckInterval = 3000;
-const NeedToRemoveKeywords = ['為你推薦', 'Suggested for you', '贊助', 'Sponsored'];
+const NeedToRemoveKeywords = ['為你推薦', 'Suggested for you', '贊助', 'Sponsored', 'Reels and short videos'];
 
 var lastRunTick = (new Date()).getTime();
 var removedCount = 0;
@@ -80,11 +80,12 @@ function removeRecommandPost() {
             node.remove();
         }
     });
+    lastRunTick = nowTick;
 }
 
 function executeActions() {
     removeRecommandPost();
-    setTimeout(()=> executeActions(), CheckInterval);
+    setTimeout(()=> executeActions(), 1000);
 }
 
 
