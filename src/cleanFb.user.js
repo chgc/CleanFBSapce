@@ -54,8 +54,9 @@ function checkKeywordsExist(node) {
 function checkKeywordExistBySpan(node){
     const id = node.querySelector('div[role=article]')?.getAttribute('aria-describedby')?.split(' ')[0];
     if(id == null) return false;
-    const span = node.querySelector(`span[id=${id}]`);
-    return span && span.innerHTML && NeedToRemoveKeywords.some((lang) => span.innerHTML.contains(lang));
+    // const span = node.querySelector(`span[id=${id}]`);
+    const spanOrH4 = node.querySelector(`[id="${id}"]`);
+    return spanOrH4 && spanOrH4.innerHTML && NeedToRemoveKeywords.some((lang) => spanOrH4.innerHTML.contains(lang));
 }
 
 function removeRecommandPost() {
@@ -64,6 +65,8 @@ function removeRecommandPost() {
     lastRunTick = nowTick;
 
     document.querySelectorAll("div[data-pagelet*='FeedUnit_']").forEach((node) => {
+        // debug
+        // console.log('node is', node);
         var shouldRemove = false;
         if (node.innerText && node.innerText.startsWith("連續短片和短片")) {
             shouldRemove = true;
