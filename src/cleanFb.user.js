@@ -18,7 +18,7 @@ function createBannerNode() {
         #myContainer {
             position:               fixed;
             bottom:                 0;
-            right:                  64px;
+            left:                   64px;
             font-size:              12px;
             background:             orange;
             border:                 3px outset black;
