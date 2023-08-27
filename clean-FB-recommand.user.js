@@ -12,14 +12,15 @@
 const NeedToRemoveKeywords = ['為你推薦', 'Suggested for you', '贊助'];
 
 function checkKeywordsExist(node) {
+  if (!node.innerHTML) return false;
   return NeedToRemoveKeywords.some((lang) => node.innerHTML.contains('dir="auto">' + lang + '</span>')) || NeedToRemoveKeywords.some((lang) => node.innerHTML.contains('">' + lang + '<')) ;
 }
 
 function checkKeywordExistBySpan(node){
-   const id = node.querySelector('div[role=article]').getAttribute('aria-describedby').split(' ')[0];
+   const id = node.querySelector('div[role=article]')?.getAttribute('aria-describedby')?.split(' ')[0];
    if(id == null) return false;
    const span = node.querySelector(`span[id=${id}]`);
-   return NeedToRemoveKeywords.some((lang) => span.innerHTML.contains(lang));
+   return span && span.innerHTML && NeedToRemoveKeywords.some((lang) => span.innerHTML.contains(lang));
 }
 
 function removeRecommandPost() {
