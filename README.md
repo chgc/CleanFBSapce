@@ -10,5 +10,4 @@
 
 ### Install Script
 
-- For desktop version, click [here](https://github.com/houcheng/CleanFBSapce/raw/master/src/cleanFb.user.js).
-- For android firefox version, click [here](https://github.com/houcheng/CleanFBSapce/raw/master/src/cleanFbMobile.user.js).
+- For desktop version, click [here](https://github.com/chgc/CleanFBSapce/raw/master/src/cleanFb.user.js)
