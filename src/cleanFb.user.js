@@ -1,45 +1,13 @@
 // ==UserScript==
 // @name         Clean Fb
-// @namespace    https://github.com/houcheng/CleanFBSapce
-// @version      0.11
+// @namespace    https://github.com/chgc/CleanFBSapce
+// @version      0.12
 // @description  清除FB
 // @author       Kevin Yang, Houcheng Lin
-// @grant        GM_addStyle
 // @include      /https:\/\/www.facebook.com
-// @downloadURL  https://github.com/houcheng/CleanFBSapce/raw/master/src/cleanFb.user.js
+// @downloadURL  https://github.com/chgc/CleanFBSapce/raw/master/src/cleanFb.user.js
 // ==/UserScript==
 
-function createBannerNode() {
-    const node = document.createElement ('div');
-    node.innerHTML = '';
-    node.setAttribute ('id', 'myContainer');
-    document.body.appendChild (node);
-    GM_addStyle ( `
-        #myContainer {
-            position:               fixed;
-            bottom:                 0;
-            left:                   64px;
-            font-size:              12px;
-            background:             orange;
-            border:                 3px outset black;
-            margin:                 5px;
-            opacity:                0.9;
-            z-index:                1100;
-            width:                  300px;
-            padding:                5px 5px;
-        }
-        #myButton {
-            cursor:                 pointer;
-        }
-        #myContainer p {
-            color:                  red;
-            background:             white;
-        }
-    ` );
-    return node;
-}
-
-const bannerNode = createBannerNode();
 const CheckInterval = 3000;
 const NeedToRemoveKeywords = ['為你推薦', 'Suggested for you', '贊助', 'Sponsored', 'Reels and short videos'];
 
@@ -77,9 +45,6 @@ function removeRecommandPost() {
         }
 
         if (shouldRemove) {
-            removedCount += 1;
-            const msg = node.innerText ? node.innerText.split('\n')[0] : "no-name";
-            bannerNode.innerHTML = `<div>${removedCount} ${msg}</div>`;
             node.remove();
         }
     });
